@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Enrollments</h2>
+
+<h3>Add Enrollment</h3>
+<form method="post" action="{{ url_for('add_enrollment') }}">
+    <label>Student:
+        <select name="student_id" required>
+            <option value="">-- Select Student --</option>
+            {% for s in students %}
+            <option value="{{ s["student_id"] }}">{{ s["name"] }}</option>
+            {% endfor %}
+        </select>
+    </label><br><br>
+
+    <label>Course:
+        <select name="course_id" required>
+            <option value="">-- Select Course --</option>
+            {% for c in courses %}
+            <option value="{{ c["course_id"] }}">{{ c["name"] }}</option>
+            {% endfor %}
+        </select>
+    </label><br><br>
+
+    <label>Faculty (optional):
+        <select name="faculty_id">
+            <option value="">-- Select Faculty --</option>
+            {% for f in faculty %}
+            <option value="{{ f["faculty_id"] }}">{{ f["name"] }}</option>
+            {% endfor %}
+        </select>
+    </label><br><br>
+
+    <label>Semester:
+        <input type="text" name="semester" placeholder="Fall / Spring / Summer" required>
+    </label><br><br>
+
+    <label>Year:
+        <input type="number" name="year" min="2000" max="2100" required>
+    </label><br><br>
+
+    <label>Grade (optional):
+        <input type="text" name="grade" placeholder="A, B+, Pass, etc.">
+    </label><br><br>
+
+    <button type="submit">Save Enrollment</button>
+</form>
+
+<h3>Existing Enrollments</h3>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Faculty</th>
+            <th>Semester</th>
+            <th>Year</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for e in enrollments %}
+        <tr>
+            <td>{{ e["enrollment_id"] }}</td>
+            <td>{{ e["student_name"] }}</td>
+            <td>{{ e["course_name"] }}</td>
+            <td>{{ e["faculty_name"] or "N/A" }}</td>
+            <td>{{ e["semester"] }}</td>
+            <td>{{ e["year"] }}</td>
+            <td>{{ e["grade"] or "-" }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="7">No enrollments found.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
