@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Student</h2>
+
+<form method="post">
+    <label>First Name:
+        <input type="text" name="first_name" required>
+    </label><br><br>
+
+    <label>Last Name:
+        <input type="text" name="last_name" required>
+    </label><br><br>
+
+    <label>Email:
+        <input type="email" name="email" required>
+    </label><br><br>
+
+    <label>Major:
+        <input type="text" name="major">
+    </label><br><br>
+
+    <label>Level:
+        <input type="text" name="level" placeholder="Undergraduate / Graduate">
+    </label><br><br>
+
+    <label>Enrollment Year:
+        <input type="number" name="enrollment_year" min="2000" max="2100">
+    </label><br><br>
+
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
