@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Course</h2>
+
+<form method="post">
+    <label>Course Code:
+        <input type="text" name="course_code" required>
+    </label><br><br>
+
+    <label>Title:
+        <input type="text" name="title" required>
+    </label><br><br>
+
+    <label>Credits:
+        <input type="number" name="credits" required min="1" max="10">
+    </label><br><br>
+
+    <label>Department:
+        <input type="text" name="department">
+    </label><br><br>
+
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
