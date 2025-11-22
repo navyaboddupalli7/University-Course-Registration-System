@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Course Registration System</title>
+</head>
+<body>
+    <header>
+        <h1>University Course Registration System</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('list_students') }}">Students</a> |
+            <a href="{{ url_for('list_courses') }}">Courses</a> |
+            <a href="{{ url_for('list_faculty') }}">Faculty</a> |
+            <a href="{{ url_for('list_enrollments') }}">Enrollments</a>
+        </nav>
+        <hr>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <hr>
+        <p>&copy; 2025 University Course Registration System</p>
+    </footer>
+</body>
+</html>
