@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Faculty</h2>
+
+<form method="post">
+    <label>First Name:
+        <input type="text" name="first_name" required>
+    </label><br><br>
+
+    <label>Last Name:
+        <input type="text" name="last_name" required>
+    </label><br><br>
+
+    <label>Email:
+        <input type="email" name="email" required>
+    </label><br><br>
+
+    <label>Department:
+        <input type="text" name="department">
+    </label><br><br>
+
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
