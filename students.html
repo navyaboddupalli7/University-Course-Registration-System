@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Students</h2>
+
+<a href="{{ url_for('add_student') }}">Add New Student</a>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Major</th>
+            <th>Level</th>
+            <th>Enrollment Year</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for s in students %}
+        <tr>
+            <td>{{ s["student_id"] }}</td>
+            <td>{{ s["first_name"] }} {{ s["last_name"] }}</td>
+            <td>{{ s["email"] }}</td>
+            <td>{{ s["major"] }}</td>
+            <td>{{ s["level"] }}</td>
+            <td>{{ s["enrollment_year"] }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="6">No students found.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
